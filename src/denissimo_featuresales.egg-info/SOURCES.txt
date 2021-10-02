@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/denissimo_featuresales.egg-info/PKG-INFO
+src/denissimo_featuresales.egg-info/SOURCES.txt
+src/denissimo_featuresales.egg-info/dependency_links.txt
+src/denissimo_featuresales.egg-info/top_level.txt
+src/futuresales/__init__.py
+src/futuresales/pipeline.py
+src/futuresales/utils.py
+src/futuresales/features/__init__.py
+src/futuresales/features/aggregators.py
+src/futuresales/features/extractor.py
+src/futuresales/features/transformers.py

@@ -1,0 +1,11 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+    "hyperopt",
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "sklearn",
+]
+build-backend = "setuptools.build_meta"
