@@ -4,8 +4,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="denissimo_featuresales",
-    version="0.0.1",
+    name="futuresales-denissimo",
+    version="0.0.2",
     author="denissimo",
     author_email="twihkapb@gmail.com",
     description="My utility pkg",
