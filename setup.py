@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="futuresales-denissimo",
-    version="0.0.2",
+    version="0.0.3",
     author="denissimo",
     author_email="twihkapb@gmail.com",
     description="My utility pkg",
