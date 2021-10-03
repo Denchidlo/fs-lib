@@ -1,11 +1,15 @@
 import setuptools
+import json
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+with open("version.json", "r", encoding="utf-8") as fh:
+    version = json.load(fh)
+
 setuptools.setup(
     name="futuresales-denissimo",
-    version="0.0.3",
+    version=version.version,
     author="denissimo",
     author_email="twihkapb@gmail.com",
     description="My utility pkg",

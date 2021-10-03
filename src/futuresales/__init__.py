@@ -7,4 +7,4 @@ __author__ = "denissimo"
 
 from . import pipeline
 from . import features
-from . import pipeline
+from . import utils
