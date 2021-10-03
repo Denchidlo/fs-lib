@@ -9,7 +9,7 @@ with open("version.json", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="futuresales-denissimo",
-    version=version.version,
+    version=version['version'],
     author="denissimo",
     author_email="twihkapb@gmail.com",
     description="My utility pkg",
