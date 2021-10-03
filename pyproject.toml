@@ -7,5 +7,6 @@ requires = [
     "pandas",
     "scikit-learn",
     "sklearn",
+    "statsmodels",
 ]
 build-backend = "setuptools.build_meta"
