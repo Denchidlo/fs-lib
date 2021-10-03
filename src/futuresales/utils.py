@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.metrics import mean_squared_error as mse
 from hyperopt import fmin, tpe, hp, STATUS_OK, Trials
+from sklearn.preprocessing import StandardScaler
 
 
 def hyperopt_objective(model, train_data, test_data):
@@ -23,3 +24,19 @@ def hyperopt_objective(model, train_data, test_data):
         return result
 
     return _loss
+
+
+def make_scaled(df_origin):
+    def standartize(dataset):
+        scaler = StandardScaler()
+        try:
+            return scaler.fit_transform(dataset.to_numpy())
+        except:
+            return scaler.fit_transform(dataset)
+
+    df = pd.DataFrame(
+        data=standartize(df_origin), 
+        index=df_origin.index, 
+        columns=df_origin.columns
+    )
+    return df
