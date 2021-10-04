@@ -40,3 +40,8 @@ def make_scaled(df_origin):
         columns=df_origin.columns
     )
     return df
+
+def load_credentials(path):
+    from json import load
+    with open(path, 'r') as reader:
+        return load(reader)
