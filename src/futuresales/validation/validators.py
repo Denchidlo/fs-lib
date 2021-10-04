@@ -28,3 +28,14 @@ def get_statistics(report):
     stat['predicted'] = report[2]
     stat['object_id'] = report[3].index
     return stat
+
+def causation_1_percent(residuals):
+
+
+    giants = (residuals.sort_values('abs_residuals').tail(422))
+    totals = (residuals.residuals @ residuals.residuals)
+
+    giants['part'] = (residuals.residuals ** 2) / totals
+    print(f'0.1% of objects cause {(giants.residuals @ giants.residuals)/(totals)} of error')
+    
+    return giants
