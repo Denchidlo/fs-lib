@@ -38,4 +38,4 @@ def causation_1_percent(residuals):
     giants['part'] = (residuals.residuals ** 2) / totals
     print(f'0.1% of objects cause {(giants.residuals @ giants.residuals)/(totals)} of error')
     
-    return giants
+    return giants, f'0.1% of objects cause {(giants.residuals @ giants.residuals)/(totals)} of error'
