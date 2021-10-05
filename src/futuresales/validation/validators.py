@@ -47,11 +47,11 @@ def make_hpo_dataset(trials):
     df = pd.DataFrame({
         'test': [el['loss'] for el in trials.results],
         'train': [el['other_stuff']['train_rmse'] for el in trials.results],
-        **{key: [el['other_stuff']['kwargs'][key] for el in trials.results] for key in keys}
+        **{key: [el['other_stuff']['kwargs'][key] for el in trials.results] for key in list(keys)}
     })
 
     min_hyp = df.iloc[df.test.idxmin()]
-    df = df.set_index([keys]).stack().reset_index().rename({
+    df = df.set_index(list(keys)).stack().reset_index().rename({
         0: 'loss',
         'level_5': 'loss_type'
     }, axis=1)
