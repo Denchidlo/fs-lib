@@ -41,7 +41,6 @@ def causation_1_percent(residuals):
     
     return giants, f'0.1% of objects cause {(giants.residuals @ giants.residuals)/(totals)} of error'
 
-
 def make_hpo_dataset(trials):
     keys = trials.results[0]['other_stuff']['kwargs'].keys()
     df = pd.DataFrame({
