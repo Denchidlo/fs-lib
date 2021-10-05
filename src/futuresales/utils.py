@@ -45,3 +45,8 @@ def load_credentials(path):
     from json import load
     with open(path, 'r') as reader:
         return load(reader)
+
+def busy_wait():
+    from time import sleep
+    while True:
+        sleep(3)
