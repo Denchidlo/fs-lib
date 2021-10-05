@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 from sklearn.metrics import mean_squared_error as mse
 
 class Validator:
@@ -39,3 +40,19 @@ def causation_1_percent(residuals):
     print(f'0.1% of objects cause {(giants.residuals @ giants.residuals)/(totals)} of error')
     
     return giants, f'0.1% of objects cause {(giants.residuals @ giants.residuals)/(totals)} of error'
+
+def make_hpo_dataset(trials):
+    keys = trials.results[0]['other_stuff']['kwargs'].keys()
+    df = pd.DataFrame({
+        'test': [el['loss'] for el in trials.results],
+        'train': [el['other_stuff']['train_rmse'] for el in trials.results],
+        **{key: [el['other_stuff'][key] for el in trials.results] for key in keys}
+    })
+
+    min_hyp = df.iloc[df.test.idxmin()]
+    df = df.set_index([keys]).stack().reset_index().rename({
+        0: 'loss',
+        'level_5': 'loss_type'
+    }, axis=1)
+    df['loss'] = abs(df['loss'])
+    return df, min_hyp
