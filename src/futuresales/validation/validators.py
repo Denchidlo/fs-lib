@@ -52,7 +52,7 @@ def make_hpo_dataset(trials):
     min_hyp = df.iloc[df.test.idxmin()]
     df = df.set_index(list(keys)).stack().reset_index().rename({
         0: 'loss',
-        'level_5': 'loss_type'
+        f'level_{len(list(keys))}': 'loss_type'
     }, axis=1)
     df['loss'] = abs(df['loss'])
     return df, min_hyp
