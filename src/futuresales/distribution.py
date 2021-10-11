@@ -41,5 +41,5 @@ def to_pickle(path, obj):
         return pickle.dump(obj, writer)
 
 def from_pickle(path):
-    with open(path, 'rb+') as reader:
+    with open(path, 'rb') as reader:
         return pickle.load(reader)
